@@ -4,22 +4,22 @@
 // WiFi settings
 
 String apiKey = "50BLPEPFF1942BRQ";
-const char ssid[] = "Wi believe i can FI";
-const char password[] = "blackspider100";
+const char ssid[] = "Write your wifi ssid here (wifi name)";
+const char password[] = "Write your password here";
 // Time to sleep (in seconds):
 const int sleepTimeS = (120000000 * 30) ;//1hr
 // Host
 const char* host = "dweet.io";
 
 const char* server = "api.thingspeak.com";
-#define DHTPIN 5 // what pin we’re connected to
+#define DHTPIN 5 // what pin we’re connected to for the sensor
 
 DHT dht(DHTPIN, DHT11, 15);
 WiFiClient client;
 
 void setup() 
 {
-  // Serial
+  // Serial -- You can check what it will print out on the display.
   Serial.begin(115200);
   Serial.println("ESP8266 Booting");
   
@@ -44,7 +44,7 @@ Serial.println("WiFi working");
 float h = dht.readHumidity();
   float t = dht.readTemperature();
   if (isnan(h) || isnan(t)) {
-    Serial.println("Cant read from temp sensor");
+    Serial.println("Temp sensor cant be read");
     return;
   }
 
